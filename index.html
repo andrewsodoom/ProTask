@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta id="theme-color" name="theme-color" content="#05080f" />
+    <meta
+      name="description"
+      content="StudyDeck is a neon analytics dashboard for tracking academic tasks, study hours and side projects."
+    />
+    <title>StudyDeck — Study &amp; Build Analytics</title>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('studydeck:theme:v1')
+          var theme = stored === 'light' || stored === 'dark' ? stored : 'dark'
+          document.documentElement.dataset.theme = theme
+          document.documentElement.style.colorScheme = theme
+          var meta = document.getElementById('theme-color')
+          if (meta) meta.setAttribute('content', theme === 'dark' ? '#05080f' : '#f3f6fb')
+        } catch (error) {
+          document.documentElement.dataset.theme = 'dark'
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
